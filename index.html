@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mariana Ailin & Pablo Matias | Nuestra Boda</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --beige-dark:#D8C3A5;
+    --beige-light:#E5D3B3;
+    --cream:#FDFAF6;
+    --text:#4B4B4B;
+    --white:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Montserrat', sans-serif;
+    color:var(--text);
+    overflow-x:hidden;
+    background:var(--cream);
+}
+
+/* =========================
+   PANTALLA DE ACCESO
+========================= */
+#accessScreen{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:linear-gradient(135deg,#d8c3a5,#e5d3b3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.access-card{
+    background:rgba(255,255,255,.95);
+    padding:40px;
+    border-radius:20px;
+    width:90%;
+    max-width:420px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.access-card h2{
+    font-family:'Playfair Display', serif;
+    margin-bottom:20px;
+}
+
+.access-card input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.access-card button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#b89f7b;
+    color:white;
+    font-weight:600;
+}
+
+.error{
+    color:#b00020;
+    margin-top:10px;
+    display:none;
+}
+
+/* =========================
+   SECCIÓN 1 - PORTADA
+========================= */
+.hero{
+    height:100vh;
+    position:relative;
+    background-image:
+    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+  url("https://lh3.googleusercontent.com/u/0/d/1bLVhQeIa2dIusKwyq1B_T6bFjkSD4jB_");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content h1{
+    font-family:'Playfair Display', serif;
+    font-size:clamp(2.2rem,5vw,4rem);
+    margin-bottom:15px;
+}
+
+.hero-content h2{
+    font-family:'Playfair Display', serif;
+    font-size:clamp(2rem,5vw,5rem);
+    font-weight:600;
+}
+
+/* Música */
+.music-btn{
+    position:absolute;
+    top:25px;
+    right:25px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
+    background:rgba(255,255,255,.2);
+    backdrop-filter:blur(5px);
+    color:white;
+    font-size:24px;
+}
+
+/* Flecha */
+.scroll-down{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:2rem;
+    color:white;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:translateX(-50%) translateY(0);
+        opacity:.7;
+    }
+    50%{
+        transform:translateX(-50%) translateY(10px);
+        opacity:1;
+    }
+}
+
+/* =========================
+   SECCIÓN 2
+========================= */
+.section-events{
+    min-height:100vh;
+}
+
+.countdown-container{
+    min-height:30vh;
+    background:var(--beige-dark);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.countdown-container h2{
+    font-family:'Playfair Display', serif;
+    margin-bottom:20px;
+}
+
+.countdown{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.time-box{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    min-width:90px;
+}
+
+.time-box span{
+    display:block;
+    font-size:2rem;
+    font-weight:bold;
+}
+
+.cards-container{
+    min-height:70vh;
+    background:var(--cream);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    padding:50px 20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    width:100%;
+    max-width:450px;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.card-icon{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.card h3{
+    font-family:'Playfair Display', serif;
+    margin-bottom:15px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 24px;
+    border-radius:30px;
+    text-decoration:none;
+    background:#b89f7b;
+    color:white;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+/* =========================
+   GALERÍA
+========================= */
+.gallery{
+    padding:80px 20px;
+    background:white;
+}
+
+.gallery h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-family:'Playfair Display', serif;
+}
+
+.gallery-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.gallery-grid img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+/* =========================
+   REGALO Y RSVP
+========================= */
+.gift{
+    min-height:30vh;
+    background:var(--beige-light);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.gift h2{
+    font-family:'Playfair Display', serif;
+    margin-bottom:15px;
+}
+
+.rsvp{
+    min-height:70vh;
+    background:var(--cream);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.rsvp h2{
+    font-family:'Playfair Display', serif;
+    margin-bottom:20px;
+}
+
+.rsvp-btn{
+    padding:18px 40px;
+    font-size:1.1rem;
+    background:#b89f7b;
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    transition:.3s;
+}
+
+.rsvp-btn:hover{
+    transform:scale(1.05);
+}
+
+footer{
+    padding:25px;
+    text-align:center;
+    background:white;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+    .card{
+        max-width:100%;
+    }
+
+    .countdown{
+        gap:10px;
+    }
+
+    .time-box{
+        min-width:70px;
+        padding:15px;
+    }
+
+    .time-box span{
+        font-size:1.5rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================================================
+     CAPA DE SEGURIDAD
+     EDITAR CONTRASEÑA EN JS
+=================================================== -->
+<div id="accessScreen">
+    <div class="access-card">
+        <h2>Invitación Privada</h2>
+
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="Ingrese la clave de acceso">
+
+        <button onclick="validatePassword()">
+            Ingresar
+        </button>
+
+        <div class="error" id="errorMsg">
+            Clave incorrecta
+        </div>
+    </div>
+</div>
+
+<!-- ==================================================
+     AUDIO
+     CAMBIAR EL ARCHIVO MP3 EN src=""
+=================================================== -->
+<audio id="weddingMusic">
+    <source src="audio/musica-boda.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ==================================================
+     PORTADA
+=================================================== -->
+<section class="hero">
+
+    <button class="music-btn" id="musicBtn">
+        🎵
+    </button>
+
+    <div class="hero-content">
+        <h1>¡Nos Casamos!</h1>
+        <h2>Mariana Ailin & Pablo Matias</h2>
+    </div>
+
+    <div class="scroll-down">↓</div>
+
+</section>
+
+<!-- ==================================================
+     CUENTA REGRESIVA Y EVENTOS
+=================================================== -->
+<section class="section-events">
+
+    <div class="countdown-container">
+        <h2>Faltan...</h2>
+
+        <div class="countdown">
+            <div class="time-box">
+                <span id="days">0</span>
+                Días
+            </div>
+
+            <div class="time-box">
+                <span id="hours">0</span>
+                Horas
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">0</span>
+                Min
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">0</span>
+                Seg
+            </div>
+        </div>
+    </div>
+
+    <div class="cards-container">
+
+        <div class="card">
+            <div class="card-icon">💍🎉</div>
+            <h3>Civil & Fiesta</h3>
+
+            <p>
+                10 de Octubre de 2026<br><br>
+                Ceremonia · 18:00 hs
+                Fiesta · 19:00 hs <br><br>
+                Dress code · Cocktail · Semiformal <br><br>
+                Av. Perito Moreno 1760 · Villa Carlos Paz
+              </p>
+
+        <!-- CAMBIAR POR TU LINK DE GOOGLE MAPS -->
+        <a
+            href="https://maps.app.goo.gl/qtxSwoMXrxTWdYDj7"
+            target="_blank"
+            class="btn">
+            Cómo llegar
+        </a>
+
+    </div>
+
+    <div class="card">
+
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg"
+            alt="Spotify"
+            style="width:80px;margin-bottom:20px;">
+
+        <h3>Playlist Colaborativa</h3>
+
+        <p>
+            Ayudanos a pensar qué música no puede faltar
+            para este día tan especial.
+                  <br>        <br>
+          Si tu sugerencia no está en Spotify, no dudes en avisarnos por mensaje
+        </p>
+
+        <br>
+
+        <!-- CAMBIAR POR TU PLAYLIST -->
+        <a
+            href="https://open.spotify.com/playlist/7vgeaLq7H23qs4Ox2wvUUm?si=0b336a9dcc3f402c"
+            target="_blank"
+            class="btn">
+            Agregar canciones
+        </a>
+
+    </div>
+
+</div>
+        
+</section>
+
+<!-- ==================================================
+     GALERÍA
+=================================================== -->
+<section class="gallery">
+
+    <h2>Nuestra Historia</h2>
+
+    <div class="gallery-grid">
+
+        <img src="https://lh3.googleusercontent.com/u/0/d/1tlT2ReeNAS4ieb19Jm00QGtyBEhDEQuM">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1Xav2XoKtBzSUgpURQbCxooRS-NU0jbYJ">
+        <img src="https://lh3.googleusercontent.com/u/0/d/14l18yZX0dpCWRDkcm9eJUmriloBrUOlh">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1S7YECUH7Z2UefnnjJAvKKb1yDBs0csIs">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1TF802gaYDxQzyCLz83NycMSWmiCbv4ka">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1kQ39Vy7_4fz64xyDnOUp9gwQXQjNG0AB">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1SgLcxr85qhUtKcF5xwcxUvx4ieBCCW_-">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1uNSdorGDmzCNHbpKE11blcOLxFDEqTqX">
+
+    </div>
+
+</section>
+
+<!-- ==================================================
+     REGALO
+=================================================== -->
+<section class="gift">
+            <div class="card-icon">🎁</div>
+    <h2>Regalo Luna de Miel</h2>
+
+    <p>
+        Tu presencia es nuestro mejor regalo,
+        pero si deseas acompañarnos con un obsequio,
+        puedes colaborar con nuestra luna de miel.
+      <br>        <br>
+      Nuestro alias es: <strong>bodayfernet</strong> (a nombre de Mariana Ailin Limarino)
+    </p>
+
+   
+
+</section>
+
+<!-- ==================================================
+     RSVP
+=================================================== -->
+<section class="rsvp">
+<section class="gift">
+            <div class="card-icon">✓</div>
+    <h2>Confirmación de Asistencia</h2>
+
+    <p>
+        Esperamos compartir este día tan especial contigo.
+    </p>
+
+    <br>
+
+    <!-- CAMBIAR POR GOOGLE FORMS -->
+    <a
+      href="https://forms.gle/sYidah81RkVCP72d6"
+      target="_blank"
+      class="rsvp-btn">
+
+      Confirmar asistencia
+
+    </a>
+
+</section>
+
+<footer>
+    Mariana Ailin y Pablo Matias · 2026
+</footer>
+
+<script>
+/* ==========================================
+   CONTRASEÑA DE ACCESO
+   CAMBIAR AQUÍ
+========================================== */
+const ACCESS_PASSWORD = "fernetazo";
+
+function validatePassword() {
+
+    const input =
+    document.getElementById("passwordInput").value;
+
+    const error =
+    document.getElementById("errorMsg");
+
+    if(input === ACCESS_PASSWORD){
+        document.getElementById("accessScreen")
+        .style.display = "none";
+    } else {
+        error.style.display = "block";
+    }
+}
+
+/* Enter para ingresar */
+document
+.getElementById("passwordInput")
+.addEventListener("keypress", function(e){
+    if(e.key === "Enter"){
+        validatePassword();
+    }
+});
+
+/* ==========================================
+   REPRODUCTOR DE MÚSICA
+========================================== */
+const music =
+document.getElementById("weddingMusic");
+
+const musicBtn =
+document.getElementById("musicBtn");
+
+let playing = false;
+
+musicBtn.addEventListener("click", () => {
+
+    if(!playing){
+        music.play();
+        musicBtn.innerHTML = "🔊";
+        playing = true;
+    }else{
+        music.pause();
+        musicBtn.innerHTML = "🎵";
+        playing = false;
+    }
+
+});
+
+/* ==========================================
+   CUENTA REGRESIVA
+========================================== */
+
+const targetDate =
+new Date("2026-10-10T18:00:00");
+
+function updateCountdown(){
+
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if(diff <= 0){
+        return;
+    }
+
+    const days =
+    Math.floor(diff / (1000*60*60*24));
+
+    const hours =
+    Math.floor((diff % (1000*60*60*24))
+    / (1000*60*60));
+
+    const minutes =
+    Math.floor((diff % (1000*60*60))
+    / (1000*60));
+
+    const seconds =
+    Math.floor((diff % (1000*60))
+    / 1000);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* ==========================================
+   ANIMACIÓN DE APARICIÓN SUAVE
+========================================== */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.animate(
+                [
+                    {opacity:0, transform:'translateY(30px)'},
+                    {opacity:1, transform:'translateY(0px)'}
+                ],
+                {
+                    duration:800,
+                    fill:'forwards'
+                }
+            );
+        }
+    });
+});
+
+document.querySelectorAll('section').forEach(sec=>{
+    observer.observe(sec);
+});
+</script>
+
+</body>
+</html>
