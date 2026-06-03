@@ -164,33 +164,81 @@ body{
 .section-events{
     min-height:100vh;
 }
-    <div class="countdown-container">
-    <p class="countdown-subtitle">AGENDÁ LA FECHA</p>
-    <h2 class="countdown-title">10 de Octubre</h2>
-    <div class="countdown-divider"></div>
+  /* =========================
+   CUENTA REGRESIVA REESTILIZADA - NUEVO CODIGO
+========================= */
+.countdown-container{
+    min-height: 40vh;
+    background: var(--cream); /* Cambiado a fondo claro para que combine con la imagen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+}
 
-    <div class="countdown">
-        <div class="time-box">
-            <span id="days">0</span>
-            DÍAS
-        </div>
+.countdown-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 3px; /* Espaciado entre letras premium */
+    color: #8a9ba8; /* Gris azulado sutil */
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
 
-        <div class="time-box">
-            <span id="hours">0</span>
-            HS
-        </div>
+.countdown-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem); /* Grande y responsivo */
+    color: #333333;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
 
-        <div class="time-box">
-            <span id="minutes">0</span>
-            MIN
-        </div>
+/* La línea divisoria debajo de la fecha */
+.countdown-divider {
+    width: 50px;
+    height: 2px;
+    background-color: #a4b6c4; /* Tono azul/gris de la imagen */
+    margin-bottom: 40px;
+}
 
-        <div class="time-box">
-            <span id="seconds">0</span>
-            SEG
-        </div>
-    </div>
-</div>
+.countdown{
+    display: flex;
+    gap: 30px; /* Más aire entre columnas */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.time-box{
+    background: transparent; /* Sin fondo blanco para imitar tu captura */
+    padding: 10px;
+    min-width: 80px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #888888; /* Etiquetas en gris claro y mayúsculas */
+}
+
+.time-box span{
+    display: block;
+    font-family: 'Playfair Display', serif; /* Cambiado a Serif para que haga juego con la fecha */
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: #2b3a42; /* Color oscuro suave para los números */
+    margin-bottom: 5px;
+}
+
+/* Ajuste responsive para pantallas chicas */
+@media(max-width:768px){
+    .countdown{
+        gap: 15px;
+    }
+    .time-box{
+        min-width: 65px;
+    }
+}
 /* SUSPENDO CODIGO PARA PROBAR OTRA COSA ==============
 .countdown-container{
     min-height:30vh;
@@ -467,6 +515,36 @@ footer{
 <section class="section-events">
 
     <div class="countdown-container">
+    <p class="countdown-subtitle">AGENDÁ LA FECHA</p>
+    <h2 class="countdown-title">10 de Octubre</h2>
+    <div class="countdown-divider"></div>
+
+    <div class="countdown">
+        <div class="time-box">
+            <span id="days">0</span>
+            DÍAS
+        </div>
+
+        <div class="time-box">
+            <span id="hours">0</span>
+            HS
+        </div>
+
+        <div class="time-box">
+            <span id="minutes">0</span>
+            MIN
+        </div>
+
+        <div class="time-box">
+            <span id="seconds">0</span>
+            SEG
+        </div>
+    </div>
+</div>
+    
+    <!-- ================================== Contador Viejo Suspendido
+
+    <div class="countdown-container">
         <h2>Faltan...</h2>
 
         <div class="countdown">
@@ -491,7 +569,7 @@ footer{
             </div>
         </div>
     </div>
-
+=========================== -->
     <div class="cards-container">
 
         <div class="card">
