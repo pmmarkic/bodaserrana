@@ -202,9 +202,11 @@ body{
 }
 
 .cards-container{
+    min-height:70vh;
+    background:var(--cream);
     display:flex;
     justify-content:center;
-    align-items:stretch;
+    align-items:center;
     gap:30px;
     padding:50px 20px;
     flex-wrap:wrap;
@@ -248,30 +250,57 @@ body{
 /* =========================
    REGALO Y RSVP
 ========================= */
-
 .gift{
-    background:white;
-    width:100%;
-    max-width:450px;
-    padding:35px;
-    border-radius:20px;
+    min-height:30vh;
+    background:var(--beige-light);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    margin:40px auto;
+    padding:40px 20px;
 }
+
+.gift h2{
+    font-family:'Playfair Display', serif;
+    margin-bottom:15px;
+}
+
 .rsvp{
-    background:white;
-    width:100%;
-    max-width:450px;
-    padding:35px;
-    border-radius:20px;
+    min-height:70vh;
+    background:var(--cream);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    margin:40px auto;
+    padding:40px 20px;
 }
 
+.rsvp h2{
+    font-family:'Playfair Display', serif;
+    margin-bottom:20px;
+}
+
+.rsvp-btn{
+    padding:18px 40px;
+    font-size:1.1rem;
+    background:#b89f7b;
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    transition:.3s;
+}
+
+.rsvp-btn:hover{
+    transform:scale(1.05);
+}
+
+footer{
+    padding:25px;
+    text-align:center;
+    background:white;
+}
 /* =========================
    GALERÍA
 ========================= */
@@ -301,11 +330,6 @@ body{
     border-radius:15px;
 }
 
-footer{
-    padding:25px;
-    text-align:center;
-    background:white;
-}
 /* =========================
     Responsive 
     ========================= */
@@ -469,47 +493,49 @@ footer{
 </section>
 
 <!-- ==================================================
+     REGALO
+=================================================== -->
+<section class="gift">
+            <div class="card-icon">🎁</div>
+    <h2>Regalo Luna de Miel</h2>
+
+    <p>
+        Tu presencia es nuestro mejor regalo,
+        pero si deseas acompañarnos con un obsequio,
+        puedes colaborar con nuestra luna de miel.
+      <br>        <br>
+      Nuestro alias es: <strong>bodayfernet</strong> (a nombre de Mariana Ailin Limarino)
+    </p>
+
+   
+
+</section>
+
+<!-- ==================================================
      RSVP
 =================================================== -->
+<section class="rsvp">
+            <div class="card-icon">✓</div>
+    <h2>Confirmación de Asistencia</h2>
 
-<div class="cards-container">
+    <p>
+        Esperamos compartir este día tan especial contigo.
+    </p>
 
-    <section class="rsvp">
-        <div class="card-icon">✓</div>
+    <br>
 
-        <h2>Confirmación de Asistencia</h2>
+    <!-- CAMBIAR POR GOOGLE FORMS -->
+    <a
+      href="https://forms.gle/sYidah81RkVCP72d6"
+      target="_blank"
+      class="rsvp-btn">
 
-        <p>
-            Esperamos compartir este día tan especial contigo.
-        </p>
+      Confirmar asistencia
 
-        <br>
+    </a>
 
-        <a
-            href="https://forms.gle/sYidah81RkVCP72d6"
-            target="_blank"
-            class="rsvp-btn">
-            Confirmar asistencia
-        </a>
-    </section>
+</section>
 
-    <section class="gift">
-        <div class="card-icon">🎁</div>
-
-        <h2>Regalo Luna de Miel</h2>
-
-        <p>
-            Tu presencia es nuestro mejor regalo,
-            pero si deseas acompañarnos con un obsequio,
-            puedes colaborar con nuestra luna de miel.
-            <br><br>
-            Nuestro alias es:
-            <strong>bodayfernet</strong>
-            (a nombre de Mariana Ailin Limarino)
-        </p>
-    </section>
-
-</div>
 <!-- ==================================================
      GALERÍA
 =================================================== -->
