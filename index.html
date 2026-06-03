@@ -715,6 +715,33 @@ footer{
 <script>
 const ACCESS_PASSWORD = "fernetazo";
 
+/*Nueva Funcion Password*/ 
+  function validatePassword() {
+    const input = document.getElementById("passwordInput").value;
+    const error = document.getElementById("errorMsg");
+
+    if(input === ACCESS_PASSWORD){
+        // Oculta la pantalla de acceso
+        document.getElementById("accessScreen").style.display = "none";
+        
+        // REPRODUCCIÓN AUTOMÁTICA AL INGRESAR:
+        // Como el usuario ya hizo clic en "Ingresar", el navegador permite activar el audio.
+        const music = document.getElementById("weddingMusic");
+        const musicBtn = document.getElementById("musicBtn");
+        
+        music.play().then(() => {
+            musicBtn.innerHTML = "🔊";
+            playing = true;
+        }).catch(err => {
+            console.log("El navegador bloqueó el audio temporalmente:", err);
+        });
+
+    } else {
+        error.style.display = "block";
+    }
+}  
+    
+/* Vieja Funcion Password 
 function validatePassword() {
     const input = document.getElementById("passwordInput").value;
     const error = document.getElementById("errorMsg");
@@ -725,7 +752,7 @@ function validatePassword() {
         error.style.display = "block";
     }
 }
-
+*/ 
 document.getElementById("passwordInput").addEventListener("keypress", function(e){
     if(e.key === "Enter"){
         validatePassword();
