@@ -198,12 +198,19 @@ body{
 
 /* La línea divisoria debajo de la fecha */
 .countdown-divider {
-    width: 50px;
-    height: 2px;
+    width: 120px;
+    height: 3px;
     background-color: #a4b6c4; /* Tono azul/gris de la imagen */
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 }
-
+/* NUEVO: Estilo para la palabra "Faltan..." */
+.countdown-countdown-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; /* Le da un toque elegante y sutil de separación */
+    font-size: 1.2rem;
+    color: #666666;
+    margin-bottom: 25px; /* Espacio antes de que arranquen los números */
+}
 .countdown{
     display: flex;
     gap: 30px; /* Más aire entre columnas */
@@ -518,7 +525,9 @@ footer{
     <p class="countdown-subtitle">AGENDÁ LA FECHA</p>
     <h2 class="countdown-title">10 de Octubre</h2>
     <div class="countdown-divider"></div>
-
+        
+    <p class="countdown-countdown-text">Faltan...</p>
+        
     <div class="countdown">
         <div class="time-box">
             <span id="days">0</span>
