@@ -331,24 +331,25 @@ body{
 .btn-modern {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 14px 40px;
+    justify-content: center;
+    padding: 14px 45px;
     border-radius: 50px;
-    border: 2px solid #2b3a42;
-    background: #2b3a42;
-    color: white;
+    border: none; /* Quitamos el borde para que sea un bloque limpio */
+    background: #2c3a5d; /* El color azul marino exacto de tu imagen */
+    color: #ffffff;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.85rem;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 2px; /* Espaciado entre letras premium */
     text-decoration: none;
+    box-shadow: 0 4px 15px rgba(44, 58, 93, 0.2); /* Sombra sutil a tono */
     transition: all 0.3s ease;
 }
 
 .btn-modern:hover {
-    background: transparent;
-    color: #2b3a42;
+    background: #1e2944; /* Oscurece levemente al pasar el mouse */
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(44, 58, 93, 0.3);
 }
 
 .animated-icon-rule {
@@ -638,6 +639,26 @@ footer{
                 </div>
             </div>
 
+            <!-- NUEVO: Reemplazo de la fecha repetida por el nombre del lugar -->
+            <div class="unified-date-block">
+                <p><strong>Country Altos de Carlos Paz</strong></p>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #777; margin-top: 5px;">Espacio Altos</p>
+            </div>
+
+            <!-- Dirección física -->
+            <p class="address-text">Av. Perito Moreno 1760 · Villa Carlos Paz</p>
+
+            <!-- NUEVO BOTÓN: Estilizado exactamente como la imagen -->
+            <a href="https://maps.app.goo.gl/qtxSwoMXrxTWdYDj7" target="_blank" class="btn-modern">
+                <!-- Ícono de ubicación lineal SVG en blanco -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin-right: 8px;">
+                    <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+                CÓMO LLEGAR
+            </a>
+            
+<!--
             <div class="unified-date-block">
                 <p>Sábado, 10 de Octubre de 2026</p>
             </div>
@@ -647,6 +668,7 @@ footer{
             </a>
         </div>
     </div>
+    -->         
     <!-- TARJETA SPOTIFY (Centrada abajo) -->
     <div class="spotify-container">
         <div class="card">
