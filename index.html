@@ -206,7 +206,7 @@ body{
     background:var(--cream);
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:stretch;
     gap:30px;
     padding:50px 20px;
     flex-wrap:wrap;
@@ -220,6 +220,35 @@ body{
     border-radius:20px;
     text-align:center;
     box-shadow:0 10px 25px rgba(0,0,0,.08);
+    /* NUEVO: Convertimos la tarjeta en Flexbox vertical */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el contenido arriba y el botón abajo */
+    align-items: center;
+}
+    /* NUEVO: Contenedor para el texto interno. 
+   Esto asegura que los textos arranquen alineados arriba */
+.card-body {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el texto verticalmente en el espacio disponible */
+    width: 100%;
+}
+.btn {
+    display: inline-block;
+    margin-top: auto; /* NUEVO: El margen automático fuerza al botón a irse al fondo de la tarjeta */
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    background:#b89f7b;
+    color:white;
+    transition:.3s;
+    width: fit-content; /* Asegura que el botón no se estire a lo ancho */
+}
+
+.btn:hover {
+    transform: translateY(-2px);
 }
 
 .card-icon{
@@ -441,15 +470,16 @@ footer{
         <div class="card">
             <div class="card-icon">💍🎉</div>
             <h3>Civil & Fiesta</h3>
-
-            <p>
-                10 de Octubre de 2026<br><br>
-                Ceremonia · 18:00 hs <br><br>
-                Fiesta · 19:00 hs <br><br>
-                Dress code · Cocktail · Semiformal <br><br>
-                Av. Perito Moreno 1760 · Villa Carlos Paz
-              </p>
-
+            
+            <div class="card-body">
+                <p>
+                    10 de Octubre de 2026<br><br>
+                    Ceremonia · 18:00 hs <br><br>
+                    Fiesta · 19:00 hs <br><br>
+                    Dress code · Cocktail · Semiformal <br><br>
+                    Av. Perito Moreno 1760 · Villa Carlos Paz
+                  </p>
+            </div>
         <!-- CAMBIAR POR TU LINK DE GOOGLE MAPS -->
         <a
             href="https://maps.app.goo.gl/qtxSwoMXrxTWdYDj7"
@@ -461,30 +491,23 @@ footer{
     </div>
 
     <div class="card">
-
-        <img
-            src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg"
-            alt="Spotify"
-            style="width:80px;margin-bottom:20px;">
-
+        <div class="card-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify" style="width:80px;margin-bottom:20px;">
+        </div>
         <h3>Playlist Colaborativa</h3>
 
-        <p>
-            Ayudanos a pensar qué música no puede faltar
-            para este día tan especial.
-                  <br>        <br>
-          Si tu sugerencia no está en Spotify, no dudes en avisarnos por mensaje
-        </p>
+        <div class="card-body">
+            <p>
+                Ayudanos a pensar qué música no puede faltar para este día tan especial.
+                <br><br>
+                Si tu sugerencia no está en Spotify, no dudes en avisarnos por mensaje.
+            </p>
+        </div>
 
-        <br>
-
-        <!-- CAMBIAR POR TU PLAYLIST -->
-        <a
-            href="https://open.spotify.com/playlist/7vgeaLq7H23qs4Ox2wvUUm?si=0b336a9dcc3f402c"
-            target="_blank"
-            class="btn">
+        <a href="https://open.spotify.com/playlist/7vgeaLq7H23qs4Ox2wvUUm?si=0b336a9dcc3f402c" target="_blank" class="btn">
             Agregar canciones
         </a>
+    </div>
 
     </div>
 
